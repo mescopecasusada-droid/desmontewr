@@ -81,16 +81,21 @@
 </sc-if>
 
 <section id="hero" ref="{{ heroSectionRef }}" onMouseMove="{{ heroMouseMove }}" onMouseLeave="{{ heroMouseLeave }}" style="position:relative;min-height:100svh;display:flex;background:var(--bg);overflow:hidden">
-  <div style="position:absolute;right:-6%;top:14%;width:74%;max-width:1100px;z-index:0;pointer-events:none">
-    <img ref="{{ heroImgRef }}" src="assets/desmonte-wr-hero.png" alt="Logotipo Desmonte WR — silhueta de carro em vermelho e aço" style="width:100%;height:auto;display:block;will-change:transform" />
-  </div>
-  <div style="position:absolute;right:0;top:0;bottom:0;width:62%;z-index:1;pointer-events:none;background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,0.82) 28%,rgba(255,255,255,0) 72%)"></div>
+  <sc-if value="{{ !isMobile }}" hint-placeholder-val="{{ true }}">
+    <div style="position:absolute;right:3vw;top:52%;transform:translateY(-50%);width:min(52vw,860px);z-index:0;pointer-events:none">
+      <img ref="{{ heroImgRef }}" src="assets/desmonte-wr-hero.png" alt="Logotipo Desmonte WR — silhueta de carro em vermelho e aço" style="width:100%;height:auto;display:block;will-change:transform" />
+    </div>
+    <div style="position:absolute;right:0;top:0;bottom:0;width:70%;z-index:1;pointer-events:none;background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,0.86) 26%,rgba(255,255,255,0) 78%)"></div>
+  </sc-if>
   <div ref="{{ sweepParallaxRef }}" style="position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;transition:transform 0.6s cubic-bezier(0.16,1,0.3,1)">
     <div style="position:absolute;top:-20%;left:0;width:16%;height:140%;background:linear-gradient(105deg,transparent,rgba(200,16,24,0.10),rgba(124,138,153,0.14),transparent);animation:{{ sweepAnim }};animation-play-state:{{ heroPlayState }}"></div>
     <div style="position:absolute;top:-20%;left:0;width:2%;height:140%;background:rgba(200,16,24,0.18);animation:{{ sweepAnimThin }};animation-play-state:{{ heroPlayState }}"></div>
   </div>
   <div style="position:absolute;left:-10%;top:40%;width:120%;height:52px;background:var(--accent);opacity:0.07;transform:rotate(-15deg);z-index:1"></div>
-  <div ref="{{ textBlockRef }}" style="position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:130px 6vw 9vw;max-width:860px;min-height:100svh;transition:transform 0.6s cubic-bezier(0.16,1,0.3,1)">
+  <div ref="{{ textBlockRef }}" style="position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:118px 6vw 9vw;max-width:860px;min-height:100svh;transition:transform 0.6s cubic-bezier(0.16,1,0.3,1)">
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <img src="assets/desmonte-wr-hero.png" alt="Logotipo Desmonte WR — silhueta de carro em vermelho e aço" style="width:100%;max-width:420px;height:auto;display:block;margin:0 0 30px" />
+    </sc-if>
     <div style="overflow:hidden;margin-bottom:26px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(9px,2.6vw,12px);letter-spacing:clamp(0.03em,0.3vw,0.14em);color:var(--accent);text-transform:uppercase;white-space:nowrap;overflow:hidden;animation:typeIn 1.4s steps(30) both;max-width:100%">PEÇAS AUTOMOTIVAS USADAS · VILA SOUZA · SÃO PAULO</div>
     </div>
@@ -429,8 +434,8 @@ class Component extends DCLogic {
 
   applyImgTransform = () => {
     if (!this.heroImgRef.current) return;
-    const tx = -this._mx * 14;
-    const ty = -this._my * 14 + this._scrollY;
+    const tx = -this._mx * 8;
+    const ty = -this._my * 8 + this._scrollY;
     this.heroImgRef.current.style.transform = 'translate3d(' + tx.toFixed(2) + 'px,' + ty.toFixed(2) + 'px,0)';
   };
 

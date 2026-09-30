@@ -1,0 +1,190 @@
+DESMONTE WR — Landing page
+Vila Souza · São Paulo/SP
+Desenvolvido por Nova AI Solutions
+================================================================
+
+COMO PUBLICAR
+-------------
+1. Suba a pasta inteira para o GitHub.
+2. Conecte na Vercel (o domínio desmontewr.com já está apontado).
+3. Pronto. Não tem build, não tem support.js, não tem dependência externa.
+
+Este é o mesmo motor do site da GSX: HTML, CSS e JS puro, sem framework
+e sem CDN. As fontes vêm dentro do projeto.
+
+   index.html
+   assets/css/styles.css
+   assets/js/main.js
+   assets/fonts/    (as três fontes do site)
+   assets/img/      (logo, favicon, imagem de compartilhamento)
+   assets/pecas/    (fotos do carrossel)
+
+
+O QUE EDITAR NO DIA A DIA
+-------------------------
+Tudo está no topo do assets/js/main.js, no bloco CONFIG:
+
+  whatsapp    o número (hoje 5511939238609)
+  msgPadrao   a mensagem que já vai escrita na conversa
+  pecas       a lista do carrossel (nome, carro, ano, arquivo da foto)
+  categorias  os botões da grade
+  loadMsgs    as frases da tela de carregamento
+  avaliacoes  o total de avaliações no Google (hoje 109)
+
+Trocar o número num lugar só atualiza os 30 links do site.
+
+
+================================================================
+IRMÃO DA GSX, COM A PERSONALIDADE INVERTIDA
+================================================================
+
+Os dois sites têm a mesma engenharia e a mesma linguagem — mesma
+tipografia, mesmos carrosséis, mesmas bordas, mesma lógica de tela de
+load. O que muda é o clima, e muda de propósito:
+
+                     GSX                      WR
+  base               preto                    osso (branco quente)
+  contraste 1        branco                   grafite
+  contraste 2        roxo (purple haze)       vermelho
+  tela de load       fundo preto              fundo claro
+  o logo             se MONTA peça por peça   se DESENHA traço a traço
+
+A escolha não é estética à toa: o escudo da GSX é uma peça de metal
+montada, então ele se monta. O logo da WR é caligráfico, feito de
+traços, então ele é riscado da esquerda para a direita como quem
+desenha com caneta. A sequência é: a silhueta do carro é traçada,
+"Desmonte" é escrito logo atrás, o "WR" assina no fim e um brilho
+corre sobre a arte.
+
+Duração: cerca de 2,3s, e o site só abre depois que o desenho termina.
+Travas: um <noscript> e um timeout, para nunca ficar preso na tela.
+
+
+PALETA
+------
+Tirada do próprio logo, medindo os pixels:
+  vermelho   #C2101A   (o traço do carro e o "WR")
+  grafite    #16110F   (o "Desmonte")
+  aço        #7C8A99   (a lateral do carro)
+  osso       #F7F5F3   (fundo — branco quente, não estéril)
+
+O site alterna três ambientes conforme a pessoa rola:
+  osso     -> hero, procedência, categorias, dúvidas
+  grafite  -> como funciona, avaliações, onde estamos
+  vermelho -> estoque e chamada final
+
+CARROSSÉIS DE PALAVRAS
+  São três: os argumentos de venda depois do hero (faixa vermelha),
+  os tipos de peça antes do estoque (faixa vazada, sobre o claro) e o
+  processo em quatro tempos antes da chamada final.
+
+
+================================================================
+ATENÇÃO — CONFERIR ANTES DE PUBLICAR
+================================================================
+
+1. GARANTIA
+   O texto sempre diz "prazo combinado conforme a peça", sem número.
+   → Se tiverem um prazo padrão (7, 30, 90 dias), me diga que eu
+     coloco. Um número vende bem mais que a frase genérica.
+
+2. AVALIAÇÕES (4,2 com 109 avaliações)
+   São os números reais do Google hoje, e aparecem no hero, na seção
+   de avaliações e nos dados estruturados de SEO.
+   → Esses números mudam sozinhos com o tempo. Vale revisar de vez em
+     quando: a nota está no index.html (busque por "4,2") e o total no
+     CONFIG do main.js (campo avaliacoes).
+
+3. A CITAÇÃO DA SEÇÃO DE AVALIAÇÕES
+   Não tem nome de cliente — está escrita como "o que a gente ouve no
+   balcão". Não inventei depoimento.
+   → O ideal é trocar por uma avaliação real do Google, com o nome de
+     quem escreveu. Fica muito mais forte.
+
+
+AINDA FALTA PREENCHER
+---------------------
+[ ] HORÁRIO DE ATENDIMENTO — está "Horário a confirmar" na seção
+    Onde Estamos e na ficha da empresa.
+
+[ ] FOTOS DAS PEÇAS — as 6 já estão no ar em assets/pecas/, mas são as
+    mesmas do estoque da MESCO, recuperadas dos prints daquele site
+    (recortei o card, apaguei a legenda e o botão sobrepostos e
+    reenquadrei em 4:3). Resolução 800x600 — boa no tamanho do
+    carrossel, mas não dá para ampliar.
+
+    → Se o desmontewr.com que já está no ar tem essas fotos em
+      resolução melhor, baixe a pasta assets/pecas/ do deploy atual e
+      sobrescreva: são os mesmos nomes de arquivo, encaixa direto.
+
+    → Melhor ainda: fotos do pátio da própria WR. É o estoque da Vila
+      Souza que o cliente vai perguntar. Basta substituir o arquivo
+      mantendo o mesmo nome, ou me mandar as fotos que eu troco e
+      reenquadro.
+
+    Detalhes (nomes dos arquivos, formato, o que acontece se faltar
+    uma) estão no LEIA-ME de dentro de assets/pecas/.
+
+
+JÁ ESTÁ CERTO
+-------------
+WhatsApp    (11) 93923-8609 → 5511939238609
+Endereço    Av. Dep. Cantídio Sampaio, 6093 — Vila Souza
+            São Paulo/SP · CEP 02860-001
+CNPJ        66.356.238/0001-62
+Avaliações  4,2 com 109 no Google
+
+
+================================================================
+COMO O LINK APARECE QUANDO ALGUÉM COMPARTILHA
+================================================================
+
+A capa é o arquivo assets/img/wr-og.jpg — 1200x630, feito com o logo
+da marca em alta sobre o fundo osso, a headline, os selos (4,2 no
+Google, nota fiscal, garantia) e o WhatsApp. É ela que o WhatsApp, o
+Facebook, o Instagram, o LinkedIn e o X mostram quando alguém manda o
+link.
+
+O DOMÍNIO
+---------
+As tags de compartilhamento exigem URL ABSOLUTA — com https:// e o
+domínio na frente. Com caminho relativo o link sai sem capa nenhuma.
+
+Está tudo em https://desmontewr.com (sem www), igual ao canonical.
+Se o site passar a responder em www, busque por desmontewr.com no
+index.html e use "substituir tudo" — são 9 ocorrências: canonical,
+og:url, og:image, og:image:secure_url, twitter:image, três no bloco
+de dados estruturados (url, image, logo) e uma no comentário.
+
+DEPOIS DE PUBLICAR
+------------------
+O Facebook e o WhatsApp guardam a capa em cache — e esse site já
+está no ar, então a capa antiga pode continuar aparecendo por um
+tempo. Force a releitura em:
+  developers.facebook.com/tools/debug   (cole a URL e clique em
+                                         "Scrape Again")
+Para o X: cards-dev.twitter.com/validator
+
+PARA MUDAR A CAPA
+-----------------
+É uma imagem gerada a partir do logo, da paleta e das fontes do
+próprio site — não é um arquivo solto do Canva. Me diga o que mudar
+(a frase, os selos, a nota do Google, o telefone) que eu gero de novo
+no mesmo padrão.
+
+ÍCONES
+------
+  favicon.png            96x96   aba do navegador
+  apple-touch-icon.png   180x180 atalho na tela inicial do iPhone
+Os dois são o logo da marca sobre o osso claro do site.
+
+
+TESTADO
+-------
+  · Sem rolagem horizontal de 320px até 2560px
+  · Funciona com JavaScript desligado (10 links de WhatsApp ativos)
+  · Respeita "reduzir movimento" do sistema
+  · 18 imagens com texto alternativo, um H1, hierarquia correta
+  · Contraste aprovado em AA nos 15 pares de texto
+  · 30 links de WhatsApp, todos com o número certo
+  · Peso: cerca de 300 KB
